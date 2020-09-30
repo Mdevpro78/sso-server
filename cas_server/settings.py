@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     
     # 3rd party
     'widget_tweaks',
-    
+    'simple_sso.sso_server'
+
 ]
 
 MIDDLEWARE = [
@@ -134,4 +135,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     '',
-]
+    ]

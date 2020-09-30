@@ -18,7 +18,14 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 
 
+from simple_sso.sso_server.server import Server
+
+
+test_server = Server()
+
+
 urlpatterns = [
+    path('server/', include(test_server.get_urls())),
     path('', TemplateView.as_view(template_name='users/registeraion/home.html'), name='home'),
     path('admin/', admin.site.urls),
     path('accounts/', include('users.urls')),
