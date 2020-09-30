@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     
     # local
     'users.apps.UsersConfig',
+    
+    # 3rd party
+    'widget_tweaks',
+    
 ]
 
 MIDDLEWARE = [
@@ -54,10 +58,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'cas_server.urls'
 
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'template')],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,4 +130,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '',
+]
