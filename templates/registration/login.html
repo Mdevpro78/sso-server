@@ -6,6 +6,10 @@
     Login
 {% endblock %}
 
+{% block span %}
+    Login
+{% endblock span %}
+
 {% block form %}
     <form class="login100-form validate-form" method="post">
         {% csrf_token %}
@@ -23,8 +27,8 @@
 
         <div class="flex-sb-m w-full p-b-30">
             <div>
-                <a href="#" class="txt1">
-                    Forgot Password?
+                <a href="{% url 'users:singup' %}" class="txt1">
+                    Create a new account.
                 </a>
             </div>
         </div>
